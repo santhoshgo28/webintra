@@ -3,518 +3,321 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Kind Project (Trust)</title>
-<meta name="description" content="The Kind Project (Trust) — founded in 2026. We create programs that help people build confidence, develop their potential and connect more meaningfully with their communities. Upcoming: The Cardio Run, Bengaluru, January 2027.">
+<title>The Kind Project (Trust) — Small acts of purpose, bigger impact</title>
+<meta name="description" content="The Kind Project (Trust), founded in 2026, creates programs that help people build confidence, develop their potential and connect more meaningfully with their communities. Upcoming: The Cardio Run, Bengaluru, January 2027.">
+<meta name="theme-color" content="#FAFAF8">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js');</script>
-<style>
-  :root{
-    --white:#ffffff;
-    --blush:#FBE4E5;
-    --pink:#F19498;
-    --rose:#A83A45;
-    --olive:#546532;
-    --olive-deep:#2B3418;
-    --ink:#2B3418;
-    --ink-soft:#57604A;
-    --line:rgba(43,52,24,0.12);
-    --line-strong:rgba(43,52,24,0.18);
-
-    --night:#0A0C09;
-    --lime:#C6FF3D;
-    --night-ink:#F4F4EF;
-    --night-dim:#B9BBB1;
-    --night-line:rgba(244,244,239,0.16);
-
-    --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
-    --sans:'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --display:'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
-    --maxw:1120px;
-    --nav-h:72px;
-    --ease:cubic-bezier(.16,.84,.3,1);
-    --shadow-sm:0 1px 2px rgba(43,52,24,0.04), 0 4px 16px rgba(43,52,24,0.06);
-    --shadow-md:0 4px 12px rgba(43,52,24,0.06), 0 16px 40px rgba(43,52,24,0.08);
-  }
-
-  *,*::before,*::after{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 16px); }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ animation:none !important; transition-duration:0.01ms !important; }
-  }
-  body{
-    margin:0; background:var(--white); color:var(--ink);
-    font-family:var(--sans); font-size:16.5px; line-height:1.65;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
-  }
-  img{ max-width:100%; display:block; }
-  a{ color:inherit; }
-  h1,h2,h3,p,dl,dd,figure,ul{ margin:0; padding:0; }
-  ul{ list-style:none; }
-  :focus-visible{ outline:2.5px solid var(--rose); outline-offset:3px; border-radius:4px; }
-  ::selection{ background:var(--pink); color:var(--olive-deep); }
-
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
-  @media (max-width:640px){ .wrap{ padding:0 20px; } }
-
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding:13px 26px; border-radius:999px; border:1.5px solid transparent;
-    font-family:var(--sans); font-weight:700; font-size:14.5px; letter-spacing:0.01em; text-decoration:none;
-    cursor:pointer; transition:background .25s, color .25s, border-color .25s, transform .3s var(--ease), box-shadow .3s;
-  }
-  .btn:hover{ transform:translateY(-1.5px); }
-  .btn-olive{ background:var(--olive); color:#fff; box-shadow:0 4px 14px rgba(84,101,50,0.25); }
-  .btn-olive:hover{ background:var(--olive-deep); box-shadow:0 6px 20px rgba(43,52,24,0.28); }
-  .btn-ghost{ border-color:var(--line-strong); color:var(--olive-deep); background:transparent; }
-  .btn-ghost:hover{ background:var(--blush); border-color:var(--pink); }
-  .btn-lime{ background:var(--lime); color:#0A0C09; }
-  .btn-lime:hover{ background:#fff; }
-  .btn-night-line{ border-color:rgba(244,244,239,0.35); color:var(--night-ink); }
-  .btn-night-line:hover{ border-color:var(--lime); color:var(--lime); }
-
-  .site-nav{
-    position:sticky; top:0; z-index:50; height:var(--nav-h);
-    background:rgba(255,255,255,0.86); backdrop-filter:blur(16px) saturate(1.4);
-    -webkit-backdrop-filter:blur(16px) saturate(1.4);
-    border-bottom:1px solid transparent; transition:border-color .3s, background .3s;
-  }
-  .site-nav.scrolled{
-    border-bottom-color:var(--line);
-    background:rgba(255,255,255,0.94);
-  }
-  .nav-row{ height:100%; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
-  .brand img{ width:44px; height:auto; }
-  .brand span{ font-family:var(--serif); font-size:20px; line-height:1.1; color:var(--olive-deep); letter-spacing:0.005em; }
-  .nav-links{ display:flex; align-items:center; gap:32px; }
-  .nav-links a{
-    font-size:14.5px; font-weight:600; text-decoration:none; color:var(--ink-soft);
-    padding:6px 0; border-bottom:1.5px solid transparent; transition:color .2s, border-color .2s;
-  }
-  .nav-links a:hover{ color:var(--olive-deep); border-bottom-color:var(--pink); }
-  .nav-row .btn{ padding:10px 20px; font-size:13.5px; }
-  @media (max-width:860px){ .nav-links{ display:none; } }
-  @media (max-width:480px){
-    .hide-sm{ display:none; }
-    .brand span{ font-size:17px; }
-    .brand img{ width:38px; }
-    .nav-row .btn{ padding:9px 16px; }
-  }
-
-  .hero{ padding:clamp(40px,6vw,72px) 0 clamp(64px,9vw,112px); }
-  .hero-grid{ display:grid; grid-template-columns:1.08fr 0.92fr; gap:clamp(28px,5vw,64px); align-items:center; }
-  .hero-eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--rose); margin-bottom:18px;
-  }
-  .hero-eyebrow::before{
-    content:""; width:18px; height:1.5px; background:var(--rose); border-radius:1px;
-  }
-  .hero h1{
-    font-family:var(--serif); font-weight:400; color:var(--olive-deep);
-    font-size:clamp(48px,6.8vw,84px); line-height:1.02; letter-spacing:-0.02em;
-  }
-  .lede{ margin-top:22px; max-width:32em; font-size:clamp(16.5px,1.4vw,18.5px); color:var(--ink-soft); line-height:1.7; }
-  .actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
-  .hero-mark{ display:flex; justify-content:center; }
-  .hero-mark img{
-    width:min(100%, 420px); height:auto;
-    filter:drop-shadow(0 20px 40px rgba(43,52,24,0.12));
-  }
-  @media (max-width:860px){
-    .hero-grid{ grid-template-columns:1fr; }
-    .hero-mark{ justify-content:flex-start; margin-top:12px; }
-    .hero-mark img{ width:min(72%, 300px); }
-  }
-
-  .upcoming{ padding-bottom:clamp(72px,10vw,128px); }
-  .event{
-    position:relative; isolation:isolate; overflow:hidden;
-    background:var(--night); color:var(--night-ink); border-radius:24px;
-    --pad:clamp(24px,4.2vw,52px);
-    box-shadow:var(--shadow-md);
-  }
-  .event::after{
-    content:""; position:absolute; z-index:-1; pointer-events:none;
-    right:-8%; top:-24%; width:64%; height:78%;
-    background:radial-gradient(closest-side, rgba(198,255,61,0.09), transparent);
-  }
-  .event::before{
-    content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
-    background-image:
-      linear-gradient(rgba(244,244,239,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(244,244,239,0.04) 1px, transparent 1px);
-    background-size:56px 56px;
-    -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);
-            mask-image:linear-gradient(180deg,#000,transparent 85%);
-  }
-  .event :focus-visible{ outline-color:var(--lime); }
-
-  .event-top{ display:grid; grid-template-columns:1.1fr 0.9fr; padding-bottom:clamp(18px,2.8vw,32px); }
-  .event-main{ padding:var(--pad) var(--pad) 0; position:relative; z-index:2; }
-  .event-flag{
-    display:inline-flex; align-items:center; gap:10px;
-    font-weight:700; font-size:13.5px; letter-spacing:0.04em; text-transform:uppercase; color:var(--lime);
-  }
-  .event-flag::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 12px 2px rgba(198,255,61,0.65); }
-  .event h2{
-    margin-top:14px;
-    font-family:var(--display); font-weight:400; text-transform:uppercase;
-    font-size:clamp(56px,8.2vw,100px); line-height:0.9; letter-spacing:0.01em; color:var(--night-ink);
-  }
-  .event h2 span{ display:block; }
-  .event-tag{ margin-top:12px; font-weight:700; font-size:clamp(17px,1.8vw,20px); color:var(--night-ink); }
-
-  .pulse{ display:block; width:min(100%, 400px); height:32px; margin:20px 0 20px; overflow:visible; }
-  .pulse path{ fill:none; stroke:var(--lime); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
-  html.js .pulse path{ stroke-dasharray:900; stroke-dashoffset:900; }
-  html.js .pulse.in-view path{ animation:draw 2.2s var(--ease) forwards; }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-
-  .event-desc{ max-width:30em; color:var(--night-dim); font-size:16px; line-height:1.65; }
-
-  .facts{ display:flex; flex-wrap:wrap; gap:12px 40px; margin-top:28px; padding-top:20px; border-top:1px solid var(--night-line); }
-  .facts dt{ font-size:12.5px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--night-dim); }
-  .facts dd{ font-size:17px; font-weight:700; color:var(--night-ink); margin-top:2px; }
-
-  .distances{ display:grid; grid-template-columns:repeat(3,1fr); margin-top:24px; border:1px solid var(--night-line); border-radius:12px; overflow:hidden; }
-  .distances li{ padding:14px 16px 12px; border-left:1px solid var(--night-line); }
-  .distances li:first-child{ border-left:0; }
-  .distances b{ font-family:var(--display); font-weight:400; font-size:40px; line-height:1; color:var(--lime); }
-  .distances b small{ font-size:18px; margin-left:3px; color:var(--night-dim); }
-  .distances span{ display:block; font-size:12.5px; font-weight:600; color:var(--night-ink); margin-top:2px; }
-
-  .event .actions{ margin-top:28px; }
-
-  .event-runners{ position:relative; align-self:end; justify-self:end; width:100%; max-width:560px; z-index:1; padding-right:clamp(10px,2.2vw,28px); }
-  .event-runners img{ width:100%; height:auto; filter:drop-shadow(0 24px 44px rgba(0,0,0,0.55)); }
-
-  .event-tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:0 var(--pad); position:relative; z-index:2; }
-  .tile{ position:relative; border-radius:14px; overflow:hidden; aspect-ratio:3/2; background:#1a1d16; }
-  .tile img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
-  .tile:hover img{ transform:scale(1.04); }
-  .tile figcaption{
-    position:absolute; left:0; right:0; bottom:0; padding:36px 16px 12px;
-    background:linear-gradient(0deg, rgba(6,7,6,0.88), rgba(6,7,6,0));
-    font-weight:700; font-size:14px; color:#fff;
-  }
-  .event-note{ padding:20px var(--pad) 30px; color:var(--night-dim); font-size:14px; max-width:58em; line-height:1.6; }
-
-  @media (max-width:900px){
-    .event-top{ grid-template-columns:1fr; }
-    .event-runners{ justify-self:center; max-width:440px; margin-top:-6px; }
-  }
-  @media (max-width:720px){
-    .event{ border-radius:20px; }
-    .event-tiles{ grid-template-columns:1fr; }
-    .tile{ aspect-ratio:16/9; }
-    .distances b{ font-size:34px; }
-    .distances li{ padding:12px 10px 10px; }
-  }
-
-  .about{ background:var(--blush); padding:clamp(72px,10vw,120px) 0; }
-  .about-header{ max-width:42em; margin-bottom:clamp(40px,5vw,56px); }
-  .about-label{
-    display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:0.08em;
-    text-transform:uppercase; color:var(--rose); margin-bottom:14px;
-  }
-  .about h2{
-    font-family:var(--serif); font-weight:400; color:var(--olive-deep);
-    font-size:clamp(32px,4.2vw,48px); line-height:1.12; letter-spacing:-0.015em;
-  }
-  .about-body{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,56px); }
-  .about-copy p{ color:var(--ink); font-size:17px; line-height:1.75; max-width:36em; }
-  .about-copy p + p{ margin-top:18px; }
-  .about-copy em{ font-style:italic; color:var(--olive-deep); }
-  .about-values{ display:flex; flex-direction:column; gap:14px; }
-  .value-card{
-    background:var(--white); border-radius:16px; padding:22px 24px;
-    box-shadow:var(--shadow-sm); border:1px solid rgba(255,255,255,0.8);
-    transition:box-shadow .3s, transform .3s var(--ease);
-  }
-  .value-card:hover{ box-shadow:var(--shadow-md); transform:translateY(-2px); }
-  .value-card strong{
-    display:block; font-size:15px; font-weight:700; color:var(--olive-deep); margin-bottom:6px;
-  }
-  .value-card p{ font-size:14.5px; color:var(--ink-soft); line-height:1.55; margin:0; }
-  .about-cta{ margin-top:36px; }
-  @media (max-width:800px){
-    .about-body{ grid-template-columns:1fr; }
-  }
-
-  .partners{ padding:clamp(72px,10vw,112px) 0; }
-  .partners-label{
-    display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:0.08em;
-    text-transform:uppercase; color:var(--rose); margin-bottom:12px;
-  }
-  .partners h2{
-    font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.4vw,40px);
-    line-height:1.15; color:var(--olive-deep); letter-spacing:-0.01em;
-  }
-  .partner-list{ margin-top:36px; border-top:1px solid var(--line); }
-  .partner-row{
-    display:grid; grid-template-columns:minmax(160px, 0.3fr) 1fr;
-    gap:12px 32px; padding:22px 0; border-bottom:1px solid var(--line);
-  }
-  .partner-row dt{ font-weight:700; color:var(--ink-soft); font-size:13.5px; padding-top:3px; letter-spacing:0.02em; }
-  .partner-row dd{ font-size:16.5px; color:var(--ink); max-width:42em; line-height:1.55; }
-  .partner-row .text-link{ margin-top:0; margin-left:4px; font-size:15px; }
-  @media (max-width:640px){ .partner-row{ grid-template-columns:1fr; gap:4px; } }
-
-  .contact{
-    background:linear-gradient(180deg, #f8f6f2 0%, var(--white) 100%);
-    padding:clamp(56px,8vw,88px) 0;
-    border-top:1px solid var(--line);
-  }
-  .contact-inner{
-    display:grid; grid-template-columns:1.2fr 0.8fr; gap:clamp(32px,5vw,64px);
-    align-items:center;
-  }
-  .contact h2{
-    font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.4vw,40px);
-    line-height:1.15; color:var(--olive-deep); letter-spacing:-0.01em;
-  }
-  .contact p{ margin-top:12px; color:var(--ink-soft); font-size:16.5px; max-width:32em; }
-  .contact-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-  .btn-whatsapp{
-    background:#25D366; color:#fff; box-shadow:0 4px 14px rgba(37,211,102,0.3);
-  }
-  .btn-whatsapp:hover{ background:#1ebe57; box-shadow:0 6px 18px rgba(37,211,102,0.35); }
-  .btn-ig{
-    background:transparent; border-color:var(--line-strong); color:var(--olive-deep);
-  }
-  .btn-ig:hover{ background:var(--blush); border-color:var(--pink); }
-  .contact-card{
-    background:var(--white); border-radius:20px; padding:28px 28px 26px;
-    box-shadow:var(--shadow-md); border:1px solid var(--line);
-  }
-  .contact-card h3{ font-size:15px; font-weight:700; color:var(--olive-deep); margin-bottom:18px; }
-  .contact-links{ display:flex; flex-direction:column; gap:14px; }
-  .contact-links a{
-    display:flex; align-items:center; gap:14px; text-decoration:none;
-    font-size:15.5px; font-weight:600; color:var(--ink); transition:color .2s;
-  }
-  .contact-links a:hover{ color:var(--rose); }
-  .contact-icon{
-    width:42px; height:42px; border-radius:12px; display:grid; place-items:center;
-    flex:none; background:var(--blush);
-  }
-  .contact-icon svg{ width:20px; height:20px; }
-  .contact-links small{ display:block; font-size:13px; font-weight:500; color:var(--ink-soft); margin-top:1px; }
-  @media (max-width:800px){
-    .contact-inner{ grid-template-columns:1fr; }
-  }
-
-  .site-foot{ background:var(--olive-deep); color:#E9EDDF; padding:56px 0 28px; }
-  .foot-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:36px; flex-wrap:wrap; }
-  .foot-id{ display:flex; align-items:center; gap:14px; text-decoration:none; }
-  .foot-id .badge{
-    width:56px; height:56px; border-radius:50%; background:#fff;
-    display:grid; place-items:center; padding:5px; flex:none;
-  }
-  .foot-id .badge img{ width:100%; height:100%; object-fit:contain; }
-  .foot-id strong{ display:block; font-family:var(--serif); font-weight:400; font-size:22px; line-height:1.15; color:#fff; }
-  .foot-id small{ font-size:13.5px; color:#B7C09F; }
-  .foot-right{ display:flex; flex-direction:column; align-items:flex-end; gap:20px; }
-  .foot-links{ display:flex; flex-wrap:wrap; gap:8px 28px; justify-content:flex-end; }
-  .foot-links a{ font-size:14.5px; font-weight:600; text-decoration:none; color:#E9EDDF; transition:color .2s; }
-  .foot-links a:hover{ color:var(--pink); }
-  .foot-social{ display:flex; gap:10px; }
-  .foot-social a{
-    width:40px; height:40px; border-radius:10px; display:grid; place-items:center;
-    background:rgba(255,255,255,0.08); color:#E9EDDF; transition:background .2s, color .2s;
-  }
-  .foot-social a:hover{ background:rgba(255,255,255,0.16); color:#fff; }
-  .foot-social svg{ width:18px; height:18px; }
-  .site-foot :focus-visible{ outline-color:var(--pink); }
-  .foot-base{
-    margin-top:40px; padding-top:22px; border-top:1px solid rgba(233,237,223,0.14);
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-    font-size:13px; color:#B7C09F;
-  }
-  .foot-base a{ color:#B7C09F; text-decoration:none; }
-  .foot-base a:hover{ color:#E9EDDF; }
-  @media (max-width:640px){
-    .foot-right{ align-items:flex-start; }
-    .foot-links{ justify-content:flex-start; }
-  }
-</style>
 </head>
 <body>
 
-<header class="site-nav" id="siteNav">
-  <div class="wrap nav-row">
-    <a class="brand" href="#top" aria-label="The Kind Project (Trust), back to top">
-      <img src="logo.png" alt="" width="744" height="649">
-      <span>The Kind Project (Trust)</span>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-row">
+    <a class="brand" href="#top" aria-label="The Kind Project (Trust), home">
+      <span class="brand-mark"><img src="logo.png" alt="" width="744" height="649"></span>
+      <span class="brand-text">The Kind Project <small>Trust</small></span>
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="#about">About</a>
-      <a href="#upcoming">Upcoming event</a>
+      <a href="#approach">Approach</a>
+      <a href="#event">Upcoming event</a>
       <a href="#partners">Partners</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-olive" href="cardio-run.html#register"><span>Register<span class="hide-sm"> for the run</span></span></a>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm hide-md" href="#contact">Get in touch</a>
+      <a class="btn btn-primary btn-sm" href="cardio-run.html#register">Register for the run</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#approach">Approach</a>
+    <a href="#event">Upcoming event</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" href="cardio-run.html#register">Register for The Cardio Run</a>
   </div>
 </header>
 
 <main id="top">
 
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="hero-eyebrow">Community · Purpose · Impact</p>
-      <h1>Kindness,<br>in motion.</h1>
-      <p class="lede">The Kind Project (Trust) creates programs that help people build confidence, develop their potential and connect more meaningfully with the communities around them. Our next gathering: The Cardio Run — January 2027, Bengaluru.</p>
-      <div class="actions">
-        <a class="btn btn-olive" href="#upcoming">See the upcoming event</a>
-        <a class="btn btn-ghost" href="cardio-run.html#register">Register for the run</a>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <a class="announce" href="cardio-run.html">
+        <span class="tag">Upcoming</span>
+        The Cardio Run · January 2027, Bengaluru
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <h1 class="h-display">Small acts of purpose can grow into something <span class="serif">much bigger.</span></h1>
+      <p class="lead">We create programs that help people build confidence, develop their potential and connect more meaningfully with the communities around them.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#event">Explore The Cardio Run <svg class="arrow-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-secondary btn-lg" href="#contact">Partner with us</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Founded in 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Bengaluru, Karnataka</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg> In collaboration with the Govt. of Karnataka</span>
       </div>
     </div>
-    <div class="hero-mark">
-      <img src="logo.png" alt="The Kind Project (Trust) logo" width="744" height="649">
+
+    <!-- Product-style showcase -->
+    <div class="showcase reveal observe">
+      <div class="window">
+        <div class="window-bar">
+          <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="window-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> thekindproject / cardio-run</div>
+          <div style="width:42px" aria-hidden="true"></div>
+        </div>
+        <div class="window-body">
+          <div class="wb-media" style="background-image:url('photo-finish.jpg')" role="img" aria-label="Runners approaching the finish arch at The Cardio Run">
+            <div class="wb-caption">
+              <span class="badge badge-dark"><span class="dot dot-lime"></span> Next program</span>
+              <h3>The Cardio Run</h3>
+              <p>Run for every heartbeat — January 2027, Bengaluru</p>
+            </div>
+          </div>
+          <div class="wb-panel">
+            <div class="wb-row">
+              <span class="wb-title">Event overview</span>
+              <span class="badge badge-brand"><span class="dot dot-live"></span> Registrations open</span>
+            </div>
+            <div class="wb-kpis">
+              <div class="kpi"><b>3</b><span>Distances</span></div>
+              <div class="kpi"><b>9</b><span>Stations</span></div>
+              <div class="kpi"><b>5:30<small>AM</small></b><span>Check-in</span></div>
+            </div>
+            <div class="wb-row"><span class="wb-title">Run-day schedule</span><span class="wb-title">Jan 2027</span></div>
+            <ul class="wb-list">
+              <li><span class="t">05:30</span>Reporting &amp; check-in</li>
+              <li><span class="t">06:00</span>Guided warm-up</li>
+              <li><span class="t">06:30</span>Flag-off <span class="s badge badge-brand">3K · 5K · 10K</span></li>
+              <li><span class="t">08:30</span>Awards &amp; acknowledgements</li>
+            </ul>
+            <div class="wb-foot">
+              <a class="btn btn-secondary btn-sm" href="cardio-run.html">View event</a>
+              <a class="btn btn-brand btn-sm" href="cardio-run.html#register">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="upcoming" id="upcoming" aria-labelledby="upcoming-title">
-  <div class="wrap">
-    <article class="event">
-      <div class="event-top">
-        <div class="event-main">
-          <p class="event-flag">Upcoming event</p>
-          <h2 id="upcoming-title"><span>The Cardio</span><span>Run</span></h2>
-          <p class="event-tag">Run for every heartbeat</p>
+<!-- ============ LOGOS ============ -->
+<section class="logos" aria-label="Collaborators and sponsors">
+  <div class="container logos-inner">
+    <p class="logos-label">Working alongside government, brands and institutions</p>
+    <div class="logos-row">
+      <img class="tall" src="gok-crest.png" alt="Government of Karnataka">
+      <img src="logo-sbi.png" alt="SBI">
+      <img src="logo-puma.png" alt="Puma" style="height:30px">
+      <img src="logo-hdfc.png" alt="HDFC Bank" style="height:20px">
+      <img src="logo-bisleri.png" alt="Bisleri">
+      <span class="wordmark">MAX Healthcare</span>
+      <span class="wordmark light">cult.fit</span>
+      <span class="wordmark">Strava</span>
+    </div>
+  </div>
+</section>
 
-          <svg class="pulse" id="pulse" viewBox="0 0 600 34" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0,17 L120,17 L142,4 L162,30 L182,17 L300,17 L322,4 L342,30 L362,17 L480,17 L502,4 L522,30 L542,17 L600,17"/>
-          </svg>
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About us</span>
+      <h2 class="h-section">Turning good intentions into <span class="serif">meaningful action.</span></h2>
+      <div class="prose" style="margin-top:28px">
+        <p><em>The Kind Project</em> was founded in 2026 with a belief that small acts of purpose can grow into something much bigger.</p>
+        <p>From personality development to community-led initiatives, our work is shaped by real people, real needs and the belief that progress is better when it is built together. We work alongside institutions, departments, organisations and individuals who want to turn good intentions into meaningful action.</p>
+        <p>We care about three things: <em>doing work that matters, building partnerships that last, and creating impact that stays.</em></p>
+      </div>
+      <div style="margin-top:30px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn btn-primary" href="cardio-run.html">Explore The Cardio Run <svg class="arrow-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-secondary" href="#partners">Our collaborators</a>
+      </div>
+    </div>
 
-          <p class="event-desc">A city-wide run built around one idea: every step you take is one your heart will thank you for.</p>
+    <div class="values" aria-label="What we care about">
+      <article class="value reveal d1">
+        <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <div>
+          <span class="num">01</span>
+          <h3>Work that matters</h3>
+          <p>Programs rooted in real needs — designed to build confidence, capability and connection.</p>
+        </div>
+      </article>
+      <article class="value reveal d2">
+        <span class="icon-box pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <div>
+          <span class="num">02</span>
+          <h3>Partnerships that last</h3>
+          <p>We collaborate with institutions, departments and organisations who share a long view of impact.</p>
+        </div>
+      </article>
+      <article class="value reveal d3">
+        <span class="icon-box ink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span>
+        <div>
+          <span class="num">03</span>
+          <h3>Impact that stays</h3>
+          <p>Success isn’t the event itself. It’s the change that remains after it ends.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
+<!-- ============ APPROACH ============ -->
+<section class="section border-t" id="approach" style="padding-top:clamp(64px,8vw,104px)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How we work</span>
+      <h2 class="h-section">Programs built with people, <span class="serif">not just for them.</span></h2>
+      <p class="lead">Every initiative starts from a real need and is designed to leave something behind once it ends.</p>
+    </div>
+    <div class="features reveal d1">
+      <div class="feature">
+        <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
+        <span class="step">01 — Personal growth</span>
+        <h3>Personality development</h3>
+        <p>Programs that help people build confidence and develop their potential — at their own pace, in their own context.</p>
+      </div>
+      <div class="feature">
+        <span class="icon-box pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+        <span class="step">02 — Community</span>
+        <h3>Community-led initiatives</h3>
+        <p>Shaped by real people and real needs, so communities can connect more meaningfully with each other — like The Cardio Run.</p>
+      </div>
+      <div class="feature">
+        <span class="icon-box ink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></span>
+        <span class="step">03 — Partnership</span>
+        <h3>Institutional collaboration</h3>
+        <p>We work alongside institutions, departments and organisations to turn shared intent into programs that last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="section-sm">
+  <div class="container quote reveal">
+    <blockquote>“A program isn’t successful simply because it happened. It’s successful when <span class="serif">something changes</span> because it did.”</blockquote>
+    <cite><span class="brand-mark"><img src="logo.png" alt=""></span> The Kind Project (Trust)</cite>
+  </div>
+</section>
+
+<!-- ============ EVENT ============ -->
+<section class="section" id="event">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Upcoming event</span>
+      <h2 class="h-section">Our next gathering is <span class="serif">on the move.</span></h2>
+    </div>
+
+    <article class="event reveal observe">
+      <div class="event-grid">
+        <div class="event-copy">
+          <span class="eyebrow">Run for every heartbeat</span>
+          <h2>The Cardio <span class="serif">Run</span></h2>
+          <svg class="pulse" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0,15 L120,15 L142,3 L162,27 L182,15 L300,15 L322,3 L342,27 L362,15 L480,15 L502,3 L522,27 L542,15 L600,15"/></svg>
+          <p class="lead">A city-wide run built around one idea: every step you take is one your heart will thank you for.</p>
           <dl class="facts">
             <div><dt>When</dt><dd>January 2027</dd></div>
             <div><dt>Where</dt><dd>Bengaluru, Karnataka</dd></div>
-            <div><dt>Check-in opens</dt><dd>5:30 AM</dd></div>
+            <div><dt>Check-in</dt><dd>5:30 AM</dd></div>
           </dl>
-
-          <ul class="distances" aria-label="Run distances">
-            <li><b>3<small>km</small></b><span>Fun Run</span></li>
-            <li><b>5<small>km</small></b><span>Cardio Run</span></li>
-            <li><b>10<small>km</small></b><span>Endurance Run</span></li>
+          <ul class="dist-pills" aria-label="Run distances">
+            <li class="dist-pill"><b>3<small>km</small></b><span>Fun Run</span></li>
+            <li class="dist-pill"><b>5<small>km</small></b><span>Cardio Run</span></li>
+            <li class="dist-pill"><b>10<small>km</small></b><span>Endurance Run</span></li>
           </ul>
-
           <div class="actions">
-            <a class="btn btn-lime" href="cardio-run.html">View event details</a>
-            <a class="btn btn-night-line" href="cardio-run.html#register">Register now</a>
+            <a class="btn btn-lime btn-lg" href="cardio-run.html#register">Register now <svg class="arrow-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            <a class="btn btn-night btn-lg" href="cardio-run.html">View event details</a>
           </div>
         </div>
-
-        <div class="event-runners">
-          <img src="runners.webp" alt="Runners mid-stride at The Cardio Run" width="749" height="564">
+        <div class="event-media">
+          <figure><img src="photo-dance.jpg" alt="Crowd doing a dance cardio session before the flag-off" loading="lazy"><figcaption>Dance cardio</figcaption></figure>
+          <figure><img src="photo-cycle.jpg" alt="Runners passing the cycle station on the route" loading="lazy"><figcaption>Cycle station</figcaption></figure>
+          <figure><img src="photo-finish.jpg" alt="Runners approaching the finish arch" loading="lazy"><figcaption>The finish line</figcaption></figure>
         </div>
       </div>
-
-      <div class="event-tiles">
-        <figure class="tile"><img src="moment-dance.jpg" alt="Crowd doing a dance cardio session before the flag-off" loading="lazy"><figcaption>Dance cardio</figcaption></figure>
-        <figure class="tile"><img src="moment-cycle.jpg" alt="Runners passing the cycle station on the route" loading="lazy"><figcaption>Cycle station</figcaption></figure>
-        <figure class="tile"><img src="moment-finish.jpg" alt="Runners approaching the finish arch" loading="lazy"><figcaption>The finish line</figcaption></figure>
+      <div class="event-foot">
+        <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Free on-site health check-up</span>
+        <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Photo booth</span>
+        <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Goody bags</span>
+        <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Awards ceremony</span>
       </div>
-      <p class="event-note">Also on the morning: a free on-site health check-up, photo booth, goody bags and an awards ceremony. In collaboration with the Government of Karnataka, Department of Health &amp; Family Welfare.</p>
     </article>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-header">
-      <p class="about-label">About us</p>
-      <h2>Small acts of purpose can grow into something much bigger.</h2>
+<!-- ============ PARTNERS ============ -->
+<section class="section border-t" id="partners" style="padding-top:clamp(64px,8vw,104px)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Collaborators</span>
+      <h2 class="h-section">Who we’re <span class="serif">working with.</span></h2>
+      <p class="lead">Progress is better when it’s built together. These are the partners making The Cardio Run possible.</p>
     </div>
-
-    <div class="about-body">
-      <div class="about-copy">
-        <p><em>The Kind Project</em> was founded in 2026 with a belief that small acts of purpose can grow into something much bigger.</p>
-        <p>We create programs that help people build confidence, develop their potential and connect more meaningfully with the communities around them.</p>
-        <p>From personality development to community-led initiatives, our work is shaped by real people, real needs and the belief that progress is better when it is built together. We work alongside institutions, departments, organisations and individuals who want to turn good intentions into meaningful action.</p>
-        <p>We care about three things: <em>doing work that matters, building partnerships that last, and creating impact that stays.</em></p>
-        <p>Because for us, a program isn’t successful simply because it happened. It’s successful when something changes because it did.</p>
-        <div class="about-cta">
-          <a class="btn btn-olive" href="cardio-run.html">Explore The Cardio Run</a>
+    <div class="split-cards">
+      <article class="card reveal d1">
+        <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></span>
+        <h3>In collaboration with</h3>
+        <p>Government of Karnataka, Department of Health &amp; Family Welfare.</p>
+        <div class="logo-line">
+          <img src="gok-crest.png" alt="Government of Karnataka emblem">
+          <span style="font-size:14px; color:var(--muted); max-width:22em">Bringing cardio movement, screening and awareness together in one place.</span>
         </div>
-      </div>
-
-      <div class="about-values" aria-label="What we care about">
-        <div class="value-card">
-          <strong>Work that matters</strong>
-          <p>Programs rooted in real needs — designed to build confidence, capability and connection.</p>
+      </article>
+      <article class="card reveal d2">
+        <span class="icon-box pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/></svg></span>
+        <h3>Sponsors of The Cardio Run</h3>
+        <p>Brands across banking, sport, health and nutrition backing a run for stronger hearts.</p>
+        <div class="chips">
+          <span class="chip strong">SBI · Title sponsor</span>
+          <span class="chip">Puma</span><span class="chip">HDFC Bank</span><span class="chip">Bisleri</span>
+          <span class="chip">Max Healthcare</span><span class="chip">Fast&amp;Up</span><span class="chip">aerfit</span>
+          <span class="chip">cult.fit</span><span class="chip">Strava</span>
         </div>
-        <div class="value-card">
-          <strong>Partnerships that last</strong>
-          <p>We collaborate with institutions, departments and organisations who share a long view of impact.</p>
-        </div>
-        <div class="value-card">
-          <strong>Impact that stays</strong>
-          <p>Success isn’t the event itself. It’s the change that remains after it ends.</p>
-        </div>
-      </div>
+        <a class="link" href="cardio-run.html#sponsors" style="margin-top:20px">See all sponsors <svg class="arrow-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="partners" id="partners">
-  <div class="wrap">
-    <p class="partners-label">Collaborators</p>
-    <h2>Who we’re working with</h2>
-    <dl class="partner-list">
-      <div class="partner-row">
-        <dt>In collaboration with</dt>
-        <dd>Government of Karnataka, Department of Health &amp; Family Welfare</dd>
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Let’s build something <span class="serif">that stays.</span></h2>
+        <p>Questions about The Cardio Run, partnerships, or how we can work together? Reach us directly on WhatsApp or follow along on Instagram.</p>
+        <div class="actions">
+          <a class="btn btn-wa btn-lg" href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp us</a>
+          <a class="btn btn-night btn-lg" href="cardio-run.html#register">Register for the run</a>
+        </div>
       </div>
-      <div class="partner-row">
-        <dt>Sponsors of The Cardio Run</dt>
-        <dd>SBI (title sponsor), Puma, HDFC Bank, Bisleri, Max Healthcare, Fast&amp;Up, aerfit, cult.fit and Strava. <a class="text-link" style="margin-top:0; margin-left:4px; font-weight:700; color:var(--rose); text-decoration:none; border-bottom:1.5px solid currentColor;" href="cardio-run.html#sponsors">See all sponsors</a></dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap contact-inner">
-    <div>
-      <h2>Let’s talk</h2>
-      <p>Questions about The Cardio Run, partnerships, or how we can work together? Reach us directly on WhatsApp or follow along on Instagram.</p>
-      <div class="contact-actions">
-        <a class="btn btn-whatsapp" href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp us
+      <div class="contact-list">
+        <a class="contact-item" href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer">
+          <span class="ci" style="color:#4ade80"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+          <span><b>+91 98453 70263</b><small>Chat on WhatsApp</small></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
-        <a class="btn btn-ig" href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
-        </a>
-      </div>
-    </div>
-
-    <div class="contact-card">
-      <h3>Direct channels</h3>
-      <div class="contact-links">
-        <a href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </span>
-          <span>+91 98453 70263<small>Chat on WhatsApp</small></span>
-        </a>
-        <a href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#A83A45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </span>
-          <span>@the.kindproject<small>Follow on Instagram</small></span>
+        <a class="contact-item" href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer">
+          <span class="ci" style="color:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></span>
+          <span><b>@the.kindproject</b><small>Follow on Instagram</small></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
       </div>
     </div>
@@ -523,54 +326,39 @@
 
 </main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-top">
-      <a class="foot-id" href="#top">
-        <span class="badge"><img src="logo.png" alt="The Kind Project (Trust) logo"></span>
-        <span><strong>The Kind Project (Trust)</strong><small>Founded 2026 · Bengaluru</small></span>
-      </a>
-      <div class="foot-right">
-        <nav class="foot-links" aria-label="Footer">
-          <a href="#about">About</a>
-          <a href="#upcoming">Upcoming event</a>
-          <a href="#partners">Partners</a>
-          <a href="#contact">Contact</a>
-          <a href="cardio-run.html">The Cardio Run</a>
-        </nav>
-        <div class="foot-social">
-          <a href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </a>
-          <a href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark"><img src="logo.png" alt=""></span><span>The Kind Project <small>Trust</small></span></a>
+        <p class="about">Programs that help people build confidence, develop their potential and connect more meaningfully with their communities. Founded 2026 · Bengaluru.</p>
+        <div class="socials">
+          <a href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
         </div>
       </div>
+      <div>
+        <h4>Trust</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#approach">Approach</a></li><li><a href="#partners">Partners</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>The Cardio Run</h4>
+        <ul><li><a href="cardio-run.html">Event overview</a></li><li><a href="cardio-run.html#categories">Run categories</a></li><li><a href="cardio-run.html#itinerary">Itinerary</a></li><li><a href="cardio-run.html#register">Register</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer">+91 98453 70263</a></li><li><a href="https://instagram.com/the.kindproject" target="_blank" rel="noopener noreferrer">@the.kindproject</a></li><li><span>Bengaluru, Karnataka</span></li></ul>
+      </div>
     </div>
-    <div class="foot-base">
-      <span>© <span id="year">2026</span> The Kind Project (Trust). All rights reserved.</span>
-      <a href="https://wa.me/919845370263" target="_blank" rel="noopener noreferrer">+91 98453 70263</a>
+    <div class="footer-base">
+      <span>© <span data-year>2026</span> The Kind Project (Trust). All rights reserved.</span>
+      <span class="status"><span class="dot dot-live"></span> Cardio Run registrations open</span>
     </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  var nav = document.getElementById('siteNav');
-  function onScroll(){ nav.classList.toggle('scrolled', (window.scrollY || document.documentElement.scrollTop) > 8); }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  var pulse = document.getElementById('pulse');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ pulse.classList.add('in-view'); io.disconnect(); } });
-    }, {threshold:0.4});
-    io.observe(pulse);
-  } else { pulse.classList.add('in-view'); }
-})();
-</script>
+<button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script src="site.js" defer></script>
 </body>
 </html>

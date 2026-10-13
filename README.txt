@@ -1,31 +1,24 @@
-THE KIND PROJECT (TRUST) - WEBSITE
-==================================
+THE KIND PROJECT (TRUST) - WEBSITE (redesign)
+=============================================
 
 HOW TO OPEN
-1. Unzip the folder first (don't open files from inside the zip).
-2. Double-click  index.html  - it opens in your browser.
-   (Internet is only needed for the fonts. Everything else is in the folder.)
+1. Unzip the folder first.
+2. Double-click index.html - it opens in your browser.
+   (Internet is only needed for the fonts.)
 
 WHAT'S IN THE FOLDER
-  index.html       The Trust homepage. This is the page that opens first.
-                   It has the "Upcoming event" section for The Cardio Run.
-  cardio-run.html  The full Cardio Run event page.
-  assets/          Logo and images used on the homepage.
+  index.html        Trust homepage.
+  cardio-run.html   The Cardio Run event page.
+  styles.css        The whole design (colours, fonts, layout) for both pages.
+  site.js           Small scripts: sticky nav, mobile menu, animations, counters.
+  logo.png, favicon.png, photos and sponsor logos - all in this same folder.
 
-COMMON EDITS (open the file in Notepad / any text editor)
-  Logo              Replace assets/logo.png with a new file of the same name.
-                    A PNG with a transparent background works best.
-  Event details     Change the text inside the "Upcoming event" section in
-                    index.html, and the matching text in cardio-run.html.
-  About text        index.html, in the section marked  ABOUT.
-  Registration      In cardio-run.html, find the "LACE UP" section
-                    (id="register") and change the Register Now button's
-                    href="#" to your registration link.
-
-KEEP THE FOLDER STRUCTURE
-Keep index.html, cardio-run.html and the assets folder together, otherwise
-the links and images will break.
+COMMON EDITS (open the file in any text editor)
+  Logo          Replace logo.png with a new file of the same name.
+  Brand colours Top of styles.css (--olive, --pink, --lime ...).
+  Event details Search for "January 2027" in index.html and cardio-run.html.
+  Registration  In cardio-run.html find id="register" and change the
+                Register now button's href="#" to your registration link.
 
 PUBLISHING
-Upload the contents of this folder to your web host. index.html must sit in
-the top level (root) of the site.
+Upload all files together in one folder. index.html must be at the top level.
